@@ -1,0 +1,31 @@
+# Byte-compiled
+__pycache__/
+*.py[cod]
+# Virtual environment (Linux / Windows)
+.venv/
+.venv_windows/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+run.bat
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Output (auto-generated)
+output/metrics_csv/
+output/charts/
+output/defect_vis/
+output/report/
+
+# Large model weights (track via git-lfs or download on setup)
+models/*.pt
+
+# Input JPGs (user data, not tracked)
+data/jpg_input/
+data/meta_info.csv
+data

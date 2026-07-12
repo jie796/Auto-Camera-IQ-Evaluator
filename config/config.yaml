@@ -1,0 +1,54 @@
+# ============================================================
+# JPG IQ Evaluator 全局配置
+# ============================================================
+
+# --- 场景分组（文件夹名 → 显示名） ---
+scene_groups:
+  resolution: "分辨率卡 (ISO 12233)"
+  color_checker: "24 色卡 (ColorChecker)"
+  gray_step: "灰阶卡"
+  flat_field: "均匀场 (暗角/噪声)"
+  natural_scene: "自然场景 (缺陷检测)"
+
+# --- 客观指标开关 ---
+metrics:
+  mtf: true               # SFR 锐度 MTF50 / MTF50P
+  color_accuracy: true    # 色彩准确度 ΔEab / CMC
+  noise_snr: true         # 平坦区域 SNR
+  noise_texture: true     # 纹理噪声 (dead leaves)
+  vignetting: true        # 暗角率 (%)
+  distortion: false       # 畸变率 (需棋盘格场景)
+  blocking_artifacts: true # JPG 块效应
+
+# --- YOLOv8 缺陷检测 ---
+defect_detection:
+  enable: true
+  model_path: "models/yolov8_defect.pt"   # 预训练权重路径
+  confidence: 0.35                         # 检测置信度阈值
+  iou: 0.5                                 # NMS IoU 阈值
+  classes: ["chromatic_aberration", "dirt", "blur", "ghost"]  # 色散/脏点/模糊/鬼影
+
+# --- EXIF 联动分析 ---
+exif_analysis:
+  enable: true
+  parameters: ["iso", "focal_length", "f_number", "shutter"]  # 分析维度
+  target_metrics: ["mtf50", "delta_e", "snr", "vignetting"]   # 关联指标
+
+# --- ROI 检测 ---
+roi:
+  color_checker_pattern: "6x4"   # 24 色卡布局
+  iso12233_edge_angle: 5          # 倾斜边缘角度容差 (度)
+  gray_step_patches: 22           # 灰阶阶数
+
+# --- 图表参数 ---
+charts:
+  radar_max_radius: 100
+  dpi: 200
+  palette: "tab10"
+
+# --- 路径 ---
+paths:
+  metrics_csv: "output/metrics_csv"
+  charts: "output/charts"
+  defect_vis: "output/defect_vis"
+  report: "output/report"

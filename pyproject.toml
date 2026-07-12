@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jpg-iq-evaluator"
+version = "0.2.0"
+description = "基于JPG成品图的相机画质自动化评测系统"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.24",
+    "opencv-python>=4.8",
+    "Pillow>=10.0",
+    "piexif>=1.1",
+    "exifread>=3.0",
+    "scipy>=1.10",
+    "scikit-image>=0.21",
+    "colour-science>=0.4",
+    "pandas>=2.0",
+    "matplotlib>=3.7",
+    "seaborn>=0.12",
+    "PyYAML>=6.0",
+    "reportlab>=4.0",
+    "tqdm>=4.65",
+    "ultralytics>=8.0",
+    "PyQt5>=5.15",
+    "pyarrow>=12.0",
+]
+
+[tool.setuptools.packages.find]
+include = ["config", "core", "gui", "visualization", "utils"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
