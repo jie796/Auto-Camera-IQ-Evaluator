@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # JPG IQ Evaluator
 
 **基于成品 JPG 图像的相机画质自动化评测系统**
@@ -141,3 +142,6 @@ output/
 └── report/
     └── iq_evaluation_report.pdf ← 完整标准化评测报表
 ```
+=======
+# -
+>>>>>>> 9fc49cf8a45b6459296bded6c49d44f7f5f0a9ab
