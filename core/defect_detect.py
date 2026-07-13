@@ -88,7 +88,7 @@ def _detect_chromatic_aberration_traditional(img: np.ndarray) -> List[Dict]:
     cyan_mask = cv2.inRange(hsv, (85, 50, 50), (100, 255, 255))
     mask = cv2.bitwise_or(purple_mask, cyan_mask)
 
-    # 形态学开运算去噪
+    # 形态学开运算去噪（腐蚀 → 膨胀）
     kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (3, 3))
     mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, kernel)
 

@@ -7,12 +7,14 @@ import cv2
 from PIL import Image
 import piexif
 
+from utils.exceptions import ImageLoadError
+
 
 def load_jpg(path: str) -> np.ndarray:
     """加载 JPG 为 RGB uint8 numpy array (HxWx3)。"""
     img = cv2.imread(path)
     if img is None:
-        raise FileNotFoundError(f"Failed to load: {path}")
+        raise ImageLoadError(f"Failed to load: {path}")
     return cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
 

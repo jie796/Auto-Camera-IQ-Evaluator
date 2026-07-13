@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """JPG IQ Evaluator — 统一入口"""
 
 import argparse
@@ -7,6 +6,10 @@ from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(PROJECT_ROOT))
+
+from utils.logger import setup_logger
+
+logger = setup_logger()
 
 
 def parse_args() -> argparse.Namespace:
@@ -58,9 +61,9 @@ def main():
     if not df.empty:
         draw_all(args.output, cfg)
         generate_report(args.output, cfg)
-        print(f"[Done] 全流程完成，结果目录: {args.output}")
+        logger.info("全流程完成，结果目录: %s", args.output)
     else:
-        print("[Done] 无待处理图像")
+        logger.warning("无待处理图像")
 
 
 if __name__ == "__main__":
