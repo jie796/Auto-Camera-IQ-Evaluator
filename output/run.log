@@ -1,0 +1,8 @@
+23:59:22 | INFO    | Found 9 images in 1 groups
+23:59:22 | INFO    | Process workers: 4 | IO workers: 0 (in-process) | Images: 9
+23:59:30 | INFO    | Results saved: output\metrics_csv\batch_results.csv (9 images)
+23:59:32 | INFO    | 全流程完成，结果目录: output
+00:05:20 | INFO    | Found 9 images in 1 groups
+00:05:20 | INFO    | Process workers: 4 | IO workers: 0 (in-process) | Images: 9
+00:05:26 | INFO    | Results saved: output\metrics_csv\batch_results.csv (9 images)
+00:05:28 | INFO    | 全流程完成，结果目录: output
